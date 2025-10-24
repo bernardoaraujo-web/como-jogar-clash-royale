@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprenda a jogar Clash Royale</title>
+  <style>
+    /* Estilo geral da página */
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #2196F3, #0d47a1);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+      border: 10px solid black; /* 🔲 borda preta */
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      z-index: 2;
+    }
+
+    a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #FFD700;
+      color: #1e1e1e;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.3s;
+      z-index: 2;
+    }
+
+    a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    /* Coroas caindo */
+    .coroa {
+      position: absolute;
+      top: -80px;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://sl.bing.net/hCfrJHYaLHU');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: cair linear infinite;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Aprenda a jogar Clash Royale</h1>
+  <p>Clique no botão abaixo para acessar a apresentação:</p>
+  <a href="https://docs.google.com/presentation/d/1dUXtPx-b1f7dFV7cvS0TNg4JaDLW0xY3_HNaXYDjqG0/edit?slide=id.p#slide=id.p"
+     target="_blank"
+     rel="noopener noreferrer">
+    Ver Apresentação
+  </a>
+
+  <script>
+    // Gera várias coroas caindo
+    window.addEventListener('load', () => {
+      const numCoroas = 20;
+      for (let i = 0; i < numCoroas; i++) {
+        const coroa = document.createElement('div');
+        coroa.classList.add('coroa');
+        coroa.style.left = Math.random() * 100 + 'vw';
+        coroa.style.animationDuration = (5 + Math.random() * 6) + 's';
+        coroa.style.animationDelay = Math.random() * 5 + 's';
+        coroa.style.transform = `scale(${0.7 + Math.random() * 0.6})`;
+        document.body.appendChild(coroa);
+      }
+    });
+  </script>
+
+</body>
+</html>
